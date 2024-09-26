@@ -11,4 +11,10 @@
     <PackageReference Include="Microsoft.ML" Version="3.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\salary-data.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
