@@ -14,6 +14,10 @@ MLContext context = new MLContext(seed: 1);
 // 2. Wczytanie danych z pliku CSV
 IDataView dataView = context.Data.LoadFromTextFile<SalaryData>(dataPath, separatorChar: ',', hasHeader: true);
 
+var dataSplit = context.Data.TrainTestSplit(dataView, testFraction: 0.2);
+var trainingData = dataSplit.TrainSet;
+var testData = dataSplit.TestSet;
+
 
 // 3. Wybor algorytmu
 var trainer = context.Regression.Trainers.Sdca(labelColumnName: nameof(SalaryData.Salary));
@@ -25,9 +29,17 @@ var pipeline =
 
 // 5. Trenowanie modelu na podstawie danych
 Console.WriteLine("Training...");
-var trainedModel = pipeline.Fit(dataView);
+var trainedModel = pipeline.Fit(trainingData);
 
 Console.WriteLine("Done.");
+
+// Ocena modelu na podstawie danych testowych
+var predictions = trainedModel.Transform(testData);
+
+var metrics = context.Regression.Evaluate(predictions, labelColumnName: nameof(SalaryData.Salary));
+
+// Wyswietlenie metryk
+Console.WriteLine($"Wspolczynnik determinacji (R^2): {metrics.RSquared}");
 
 // 6. Przykładowane dane do predykcji
 
