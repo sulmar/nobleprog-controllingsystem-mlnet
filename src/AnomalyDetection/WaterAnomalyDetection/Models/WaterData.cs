@@ -1,6 +1,6 @@
 ﻿using Microsoft.ML.Data;
 
-namespace WaterAnomalyDetection.Models;
+namespace Water1Detection.Models;
 
 public class WaterData
 {
@@ -26,7 +26,7 @@ public class WaterData
     public float CZAS_ID { get; set; }
 
     [LoadColumn(7)]
-    public string Przyczyna { get; set; }
+    public float Anomaly { get; set; }
 } 
 
 public class WaterPrediction

@@ -1,6 +1,6 @@
 ﻿using Microsoft.ML;
 using Microsoft.ML.Trainers;
-using WaterAnomalyDetection.Models;
+using Water1Detection.Models;
 
 Console.WriteLine("Hello, World!");
 

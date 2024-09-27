@@ -38,7 +38,7 @@ static void TrainAndSaveModel()
 
     // 2. Wczytanie danych z pliku CSV
     //  IDataView dataView = context.Data.LoadFromTextFile<SalaryData>(dataPath, separatorChar: ',', hasHeader: true);
-
+    
     var dataSplit = context.Data.TrainTestSplit(dataView, testFraction: 0.2);
     var trainingData = dataSplit.TrainSet;
     var testData = dataSplit.TestSet;

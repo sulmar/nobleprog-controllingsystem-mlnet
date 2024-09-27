@@ -5,23 +5,42 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Regression", "Regression", "{D14A5BCB-F851-4784-A0E2-778CDD36E9F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredicateSalary", "Regression\PredicateSalary\PredicateSalary.csproj", "{0A33EC7E-E2E7-44DD-A74E-44876CE4696D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredicateSalary", "Regression\PredicateSalary\PredicateSalary.csproj", "{0A33EC7E-E2E7-44DD-A74E-44876CE4696D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AnomalyDetection", "AnomalyDetection", "{BCFB1DBD-B938-481C-95E3-FC11A85AB2E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterAnomalyDetection", "AnomalyDetection\WaterAnomalyDetection\WaterAnomalyDetection.csproj", "{F81168B9-37B5-425A-A5BA-3FE6CB9F47CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterAnomalyDetectionRandomizedPca", "AnomalyDetection\WaterAnomalyDetectionRandomizedPca\WaterAnomalyDetectionRandomizedPca.csproj", "{837E7E4A-BC51-471A-9C31-E1AB2A2E2228}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0A33EC7E-E2E7-44DD-A74E-44876CE4696D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A33EC7E-E2E7-44DD-A74E-44876CE4696D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A33EC7E-E2E7-44DD-A74E-44876CE4696D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A33EC7E-E2E7-44DD-A74E-44876CE4696D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F81168B9-37B5-425A-A5BA-3FE6CB9F47CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81168B9-37B5-425A-A5BA-3FE6CB9F47CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81168B9-37B5-425A-A5BA-3FE6CB9F47CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81168B9-37B5-425A-A5BA-3FE6CB9F47CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{837E7E4A-BC51-471A-9C31-E1AB2A2E2228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837E7E4A-BC51-471A-9C31-E1AB2A2E2228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837E7E4A-BC51-471A-9C31-E1AB2A2E2228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837E7E4A-BC51-471A-9C31-E1AB2A2E2228}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0A33EC7E-E2E7-44DD-A74E-44876CE4696D} = {D14A5BCB-F851-4784-A0E2-778CDD36E9F4}
+		{F81168B9-37B5-425A-A5BA-3FE6CB9F47CC} = {BCFB1DBD-B938-481C-95E3-FC11A85AB2E2}
+		{837E7E4A-BC51-471A-9C31-E1AB2A2E2228} = {BCFB1DBD-B938-481C-95E3-FC11A85AB2E2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC3697E2-5E8D-4E76-B962-933F1CAE346B}
 	EndGlobalSection
 EndGlobal
