@@ -4,26 +4,40 @@ using PredicateSalary.Models;
 
 Console.WriteLine("Hello, World!");
 
-// TrainAndSaveModel();
+TrainAndSaveModel();
 
-for(float yearsExperience = 1.0f ; yearsExperience <= 65; yearsExperience = yearsExperience + 0.5F)
-{ 
+for (float yearsExperience = 1.0f; yearsExperience <= 65; yearsExperience = yearsExperience + 0.5F)
+{
     UseTrainedModel(yearsExperience);
 
-   // Thread.Sleep(1000);
+    // Thread.Sleep(1000);
 }
 
 static void TrainAndSaveModel()
 {
-    var dataPath = Path.Combine("Data", "salary-data.csv");
+    //  var dataPath = Path.Combine("Data", "salary-data.csv");
+
+    Random random = new Random();
+   
+
+    // dotnet add package Microsoft.ML
+
+    // Przykladowe dane
+    IEnumerable<SalaryData> salaryDatas = Enumerable.Range(1, 100_000)
+        .Select(sd => new SalaryData { YearsExperience = 1f + sd / 100, Salary = random.Next(1, 10000) });
 
     // dotnet add package Microsoft.ML
 
     // 1. Utworzenie nowego kontekstu ML.NET
     var context = new MLContext(seed: 1);
 
+    // 2. Wczytanie danych z kolekcji do DataView
+    IDataView dataView = context.Data.LoadFromEnumerable(salaryDatas);
+
+  
+
     // 2. Wczytanie danych z pliku CSV
-    IDataView dataView = context.Data.LoadFromTextFile<SalaryData>(dataPath, separatorChar: ',', hasHeader: true);
+    //  IDataView dataView = context.Data.LoadFromTextFile<SalaryData>(dataPath, separatorChar: ',', hasHeader: true);
 
     var dataSplit = context.Data.TrainTestSplit(dataView, testFraction: 0.2);
     var trainingData = dataSplit.TrainSet;
