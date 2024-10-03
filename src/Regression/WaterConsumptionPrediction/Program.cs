@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.ML;
+using PredicateWaterConsumption;
 using PredicateWaterConsumption.Models;
 using System.Globalization;
 
@@ -48,7 +49,8 @@ var aggregatedWaterConsumptionData = deliveries
                 return orderedDeliveries.Zip(orderedDeliveries.Skip(1), (first, second) => new WaterConsumptionDeliveryData
                 {
                     CustomerId = first.CustomerId,
-                    DaysSinceLastDelivery = (float)(second.DeliveryDate - first.DeliveryDate).Days,
+                    
+                    DaysSinceLastDelivery = (float)DateTimeHelper.CountWorkingDays(first.DeliveryDate, second.DeliveryDate ),
                     WaterConsumption = second.WaterConsumption
                 });
             });
@@ -96,7 +98,7 @@ var predictionEngine = context.Model.CreatePredictionEngine<WaterConsumptionDeli
 // Nowe dane do predykcji zużycia wody na podstawie ilości dni od poprzedniej dostawy
 var newSample = new WaterConsumptionDeliveryData
 {
-    CustomerId = 2, // przykładowe dane
+    CustomerId = 1, // przykładowe dane
     DaysSinceLastDelivery = 30
 };
 
